@@ -3,6 +3,10 @@ node default {
   class { 'epel': stage => 'pre' }
 
   class { 'apache': }
+  resources { "firewall":
+    purge => true
+  }
+  class { 'firewall': }
   class { 'mysql::server': }
   class { 'php::cli': }
   class { 'php::mod_php5': }
